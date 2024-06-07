@@ -2,6 +2,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Representa una biblioteca que maneja un catálogo de libros y solicitudes de préstamo.
+ */
 class Library {
     private HashMap<String, Book> books;
     private Queue<UserRequest> requests;
@@ -18,6 +21,12 @@ class Library {
         books.get(isbn).addCopies(quantity);
     }
 
+    /**
+     * Registra una solicitud de préstamo de un usuario para un libro específico.
+     *
+     * @param user El usuario que solicita el préstamo.
+     * @param isbn ISBN del libro solicitado.
+     */
     public void requestLend(User user, String isbn) {
         if (books.containsKey(isbn)) {
             requests.add(new UserRequest(user, isbn));
@@ -27,6 +36,9 @@ class Library {
         }
     }
 
+    /**
+     * Procesa todas las solicitudes de préstamo en la cola.
+     */
     public void processRequests() {
         while (!requests.isEmpty()) {
             UserRequest request = requests.poll();
@@ -42,6 +54,11 @@ class Library {
         }
     }
 
+    /**
+     * Registra la devolución de un libro.
+     *
+     * @param isbn ISBN del libro devuelto.
+     */
     public void returnBook(String isbn) {
         if (books.containsKey(isbn)) {
             books.get(isbn).returnBook();
@@ -51,6 +68,9 @@ class Library {
         }
     }
 
+    /**
+     * Muestra la información de todos los libros en la biblioteca.
+     */
     public void displayBooks() {
         for (Book book : books.values()) {
             System.out.println("ISBN: " + book.getIsbn() + ", Título: " + book.getTitle() + ", Autor: " + book.getAuthor() + ", Género: " + book.getGenre() + ", Año: " + book.getYearOfPublication() + ", Copias Disponibles: " + book.getAvailableCopies());

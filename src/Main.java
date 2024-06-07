@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Clase principal para interactuar con el sistema de la biblioteca.
+ */
 public class Main {
     public static void main(String[] args) {
         Library library = new Library();
@@ -37,7 +40,7 @@ public class Main {
                     System.out.println("Libro agregado exitosamente.");
                     break;
                 case 2:
-                    System.out.print("Ingrese el numero de identificación de usuario: ");
+                    System.out.print("Ingrese el número de identificación de usuario: ");
                     String userId = scanner.nextLine();
                     System.out.print("Ingrese nombre del usuario: ");
                     String userName = scanner.nextLine();

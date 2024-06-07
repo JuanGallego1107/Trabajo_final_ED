@@ -1,3 +1,6 @@
+/**
+ * Representa un usuario de la biblioteca.
+ */
 class User {
     private String userId;
     private String name;
